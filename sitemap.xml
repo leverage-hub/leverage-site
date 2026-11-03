@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- DEPLOY STEP: replace YOUR-LIVE-ADDRESS -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<url><loc>https://YOUR-LIVE-ADDRESS/</loc></url>
+<url><loc>https://YOUR-LIVE-ADDRESS/projects/shopify-order-automation.html</loc></url>
+<url><loc>https://YOUR-LIVE-ADDRESS/projects/ai-email-classification.html</loc></url>
+<url><loc>https://YOUR-LIVE-ADDRESS/projects/ai-video-production-system.html</loc></url>
+</urlset>

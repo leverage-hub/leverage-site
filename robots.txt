@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+# DEPLOY STEP: replace YOUR-LIVE-ADDRESS
+Sitemap: https://YOUR-LIVE-ADDRESS/sitemap.xml
