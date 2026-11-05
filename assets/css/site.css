@@ -426,3 +426,59 @@ body.paused *,body.paused *::before,body.paused *::after{animation-play-state:pa
 .vid figcaption>p:not(.label){color:var(--text-2);font-size:.95rem;max-width:42ch}
 .vid .link-arrow{margin-top:6px}
 @media (max-width:900px){.vid-grid{grid-template-columns:1fr}}
+
+/* ---------- SPIRAL GALLERY (scroll-driven helix of cards; behavior in assets/js/spiral.js) ---------- */
+.spiral{background:radial-gradient(ellipse 60% 40% at 50% 100%,rgba(214,181,109,.07),rgba(214,181,109,0) 70%),var(--obsidian);padding-bottom:0}
+.sp-track{position:relative;height:340vh;margin-top:clamp(24px,4vw,56px)}
+.sp-stage{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden}
+.sp-world{position:absolute;inset:0}
+.sp-card{position:absolute;left:50%;top:50%;width:clamp(130px,19vw,290px);margin:0;opacity:0;will-change:transform,opacity}
+.sp-img{position:relative;aspect-ratio:var(--ar,4/5);border:1px solid var(--hair);border-radius:14px;overflow:hidden;background:radial-gradient(ellipse 70% 60% at 50% 35%,rgba(214,181,109,.14),rgba(214,181,109,0) 70%),linear-gradient(160deg,var(--charcoal),var(--obsidian))}
+.sp-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.sp-num{position:absolute;inset:0;display:grid;place-items:center;font-size:clamp(2.2rem,5vw,4rem);line-height:1;color:transparent;-webkit-text-stroke:1px var(--gold-line)}
+.sp-add{position:absolute;left:0;right:0;bottom:12px;text-align:center;color:var(--text-2)}
+.has-img .sp-num,.has-img .sp-add{display:none}
+.sp-corner,.sp-count{position:absolute;z-index:300;margin:0;color:var(--text-2)}
+.sp-tl{top:92px;left:clamp(18px,4vw,48px)}
+.sp-tr{top:92px;right:clamp(18px,4vw,48px)}
+.sp-bl{bottom:28px;left:clamp(18px,4vw,48px)}
+.sp-br{bottom:28px;right:clamp(18px,4vw,48px)}
+.sp-count{bottom:28px;left:50%;transform:translateX(-50%)}
+.sp-count b{color:var(--gold);font-weight:500}
+@media (prefers-reduced-motion:reduce){
+  .sp-track{height:auto}
+  .sp-stage{position:relative;height:auto;overflow:visible;padding:0 clamp(18px,4vw,48px) 56px}
+  .sp-world{position:static;display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:16px}
+  .sp-card{position:static;width:auto;opacity:1!important;transform:none!important}
+  .sp-corner,.sp-count{display:none}
+}
+
+/* ---------- MARQUEE + SOLUTIONS (scroll-linked card rail; behavior in assets/js/solutions.js) ---------- */
+.mq{overflow:hidden;padding:clamp(26px,4.5vw,60px) 0;border-block:1px solid var(--hair);background:radial-gradient(ellipse 50% 140% at 50% 50%,rgba(214,181,109,.08),rgba(214,181,109,0) 70%),var(--obsidian)}
+.mq-track{display:flex;align-items:center;width:max-content;animation:mqmove 46s linear infinite}
+.mq.off .mq-track{animation-play-state:paused}
+.mq span{font-family:var(--head);font-weight:300;font-size:clamp(3rem,9vw,8.5rem);line-height:1.05;letter-spacing:.02em;color:var(--ivory);padding:0 .3em;white-space:nowrap}
+.mq span.o{color:transparent;-webkit-text-stroke:1px var(--gold-line)}
+.mq i{font-style:normal;color:var(--gold);font-size:clamp(1.8rem,5vw,4.6rem);line-height:1}
+@keyframes mqmove{to{transform:translate3d(-25%,0,0)}}
+.solutions{background:radial-gradient(ellipse 55% 42% at 50% 16%,rgba(214,181,109,.15),rgba(214,181,109,0) 70%),linear-gradient(180deg,var(--obsidian),var(--graphite) 35%,var(--obsidian))}
+.sol-head{display:grid;justify-items:center;text-align:center;gap:20px;margin-bottom:clamp(40px,6vw,80px)}
+.sol-head h2{max-width:20ch}
+.sol-head .lede{max-width:52ch}
+.pill{display:inline-block;padding:8px 18px;border-radius:999px;background:var(--gold);color:var(--obsidian);font:600 .7rem/1 var(--label);letter-spacing:.18em;text-transform:uppercase}
+.sol-rail{overflow:hidden;padding:6px 0 10px;margin-inline:calc(var(--gutter)*-1)}
+.sol-row{display:flex;gap:clamp(14px,1.6vw,22px);width:max-content;padding:0 var(--gutter);will-change:transform}
+.sol-card{flex:0 0 clamp(270px,30vw,440px);display:flex;flex-direction:column;gap:14px;padding:clamp(22px,2.4vw,34px);border:1px solid var(--hair);border-radius:20px;background:linear-gradient(180deg,rgba(234,230,220,.05),rgba(234,230,220,.015));text-decoration:none;color:inherit;transition:transform .5s var(--ease),border-color .4s var(--ease-soft)}
+.sol-card:hover{transform:translateY(-5px);border-color:var(--gold-line)}
+.sol-ico{width:52px;height:52px;border-radius:50%;border:1px solid var(--gold-line);display:grid;place-items:center;color:var(--gold);background:rgba(214,181,109,.07);margin-bottom:10px}
+.sol-ico svg{width:24px;height:24px}
+.sol-card h3{font-size:clamp(1.2rem,1.8vw,1.5rem)}
+.sol-card p{color:var(--text-2);font-size:.95rem;flex:1}
+.sol-more{display:inline-flex;align-items:center;gap:8px;font-size:.85rem;color:var(--gold);margin-top:8px}
+.sol-more svg{width:16px;height:16px;transition:transform .4s var(--ease)}
+.sol-card:hover .sol-more svg{transform:translateX(4px)}
+@media (prefers-reduced-motion:reduce){
+  .mq-track{animation:none}
+  .sol-rail{overflow-x:auto}
+  .sol-row{transform:none!important}
+}
